@@ -1,12 +1,14 @@
 {
     "private": true,
     "dependencies": {
-        "bootstrap": "^5.2.0",
+        "bootstrap": "^4.6.0",
         "sweetalert2": "^11.4.26"
     },
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "dev:back": "vite --config vite.back.config.ts",
+        "build": "vite build",
+        "build:back": "vite build --config vite.back.config.ts"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.8",

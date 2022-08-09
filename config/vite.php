@@ -13,11 +13,8 @@ return [
     'configs' => [
         'default' => [
             'entrypoints' => [
-                'ssr' => 'resources/scripts/ssr.ts',
                 'paths' => [
-                    'resources/css/tailwind.css',
-                    'resources/scripts/main.ts',
-                    'resources/js/app.js',
+                    'resources/js/front.js',
                 ],
                 'ignore' => '/\\.(d\\.ts|json)$/',
             ],
@@ -29,7 +26,24 @@ return [
                 'key' => env('DEV_SERVER_KEY'),
                 'cert' => env('DEV_SERVER_CERT'),
             ],
-            'build_path' => 'build',
+            'build_path' => 'build/front',
+        ],
+        'back' => [
+            'entrypoints' => [
+                'paths' => [
+                    'resources/js/back.js',
+                ],
+                'ignore' => '/\\.(d\\.ts|json)$/',
+            ],
+            'dev_server' => [
+                'enabled' => true,
+                'url' => env('DEV_SERVER_URL_BACK', 'http://localhost:5174'),
+                'ping_before_using_manifest' => true,
+                'ping_timeout' => 1,
+                'key' => env('DEV_SERVER_KEY'),
+                'cert' => env('DEV_SERVER_CERT'),
+            ],
+            'build_path' => 'build/back',
         ],
     ],
 
